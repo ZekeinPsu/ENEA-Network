@@ -1,8 +1,8 @@
 library(stringr)
 data <-readLines(file.choose())
 
-
 #With DPRK
+
 a1 <- 0
 a2 <- sum(str_count(data, "China/DPRK"))
 a3 <- sum(str_count(data, "China/Japan"))+sum(str_count(data, "China/DPRK/Japan"))
@@ -45,12 +45,12 @@ f4 <- d6
 f5 <- e6
 f6 <- 0
 
-
 network1 <- matrix(
   c(a1, a2, a3, a4, a5, a6, b1, b2, b3, b4, b5, b6, c1, c2, c3, c4, c5, c6, d1, d2, d3, d4, d5, d6, e1, e2, e3, e4, e5, e6, f1, f2, f3, f4, f5, f6),
   nrow=6,
   ncol=6
 )
+
 print(network1)
 
 index_a <- sum(a1, a2, a3, a4, a5, a6)
@@ -59,6 +59,7 @@ index_c <- sum(c1, c2, c3, c4, c5, c6)
 index_d<- sum(d1, d2, d3, d4, d5, d6)
 index_e<- sum(e1, e2, e3, e4, e5, e6)
 index_f<- sum(f1, f2, f3, f4, f5, f6)
+
 print(index_a)
 print(index_b)
 print(index_c)
@@ -66,8 +67,8 @@ print(index_d)
 print(index_e)
 print(index_f)
 
-
 #Without DPRK
+
 a1 <- 0
 a3 <- sum(str_count(data, "China/Japan")) - sum(str_count(data, "China/DPRK/Japan"))
 a4 <- sum(str_count(data, "China/Mongolia"))+sum(str_count(data, "China/Japan/Mongolia")) - sum(str_count(data, "China/DPRK/Mongolia"))- sum(str_count(data, "China/DPRK/Japan/Mongolia"))
@@ -98,12 +99,12 @@ f4 <- d6
 f5 <- e6
 f6 <- 0
 
-
 network2 <- matrix(
   c(a1, a3, a4, a5, a6, c1, c3, c4, c5, c6, d1, d3, d4, d5, d6, e1, e3, e4, e5, e6, f1, f3, f4, f5, f6),
   nrow=5,
   ncol=5
 )
+
 print(network2)
 
 index_aa <- sum(a1, a3, a4, a5, a6)
@@ -111,9 +112,9 @@ index_cc<- sum(c1, c3, c4, c5, c6)
 index_dd<- sum(d1, d3, d4, d5, d6)
 index_ee<- sum(e1, e3, e4, e5, e6)
 index_ff<- sum(f1, f3, f4, f5, f6)
+
 print(index_aa)
 print(index_cc)
 print(index_dd)
 print(index_ee)
 print(index_ff)
-
